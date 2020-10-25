@@ -9,8 +9,8 @@ public class ArrayStack<T> implements Stack<T> {
     }
 
     public ArrayStack(int capacity) {
-        size = 0;
-        data = (T[]) new Object[capacity];
+        this.size = 0;
+        this.data = (T[]) new Object[capacity];
     }
 
     @Override
@@ -18,8 +18,8 @@ public class ArrayStack<T> implements Stack<T> {
         if(size == data.length){
             return false;
         }else{
-            data[size] = val;
-            size++;
+            this.data[size] = val;          //data[] stays null for some reason
+            size++;                         //even after hours of debug mode
             return true;
         }
     }

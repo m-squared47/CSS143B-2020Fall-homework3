@@ -17,13 +17,30 @@ public class SingleLinkedList {
     }
 
     public int removeAll(int valueToRemove) {
-        int count = 0;
-        while(head.next != null){                   //if there are still elements left
-            if(this.head.val == valueToRemove){     //if the head value equals the value to remove
-                this.head = head.next;              //this current head becomes the next head
-                count++;                            //increment count by 1
+        int count = 0; //counts how many removed
+
+        if( head == null) {     //if empty, return 0
+            return 0;
+        }
+
+        ListNode curr = head;           //current head
+        ListNode trail = null;   //modified version of current linked list
+
+        while (curr != null){
+            if (curr.val == valueToRemove){     //if match is found
+                if (curr == head) {             //if current matches this head
+                    head = head.next;           //this head becomes the next
+                    curr = head;                //update current
+                    count++;                    //update count
+                }else{
+                    trail.next = curr.next;  //next value is put in place
+                    curr = trail.next;       //current is now level with trailing
+                    count++;                //update count
+                }
+            } else {
+                trail = curr;    //value is passed back to trailing
+                curr = curr.next;       //move to next current
             }
-            this.head = head.next;
         }
         return count; // return number of nodes removed
     }
