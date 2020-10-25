@@ -14,7 +14,7 @@ public class LinkedListStack<T> implements Stack<T> {
     @Override
     public boolean push(T val) {
         data.add(val);
-        return false;   // place holder
+        return true;   // place holder
     }
 
     @Override

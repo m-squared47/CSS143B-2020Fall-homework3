@@ -23,8 +23,9 @@ public class SingleLinkedList {
             return 0;
         }
 
+        //based off of a post on stackoverflow
         ListNode curr = head;           //current head
-        ListNode trail = null;   //modified version of current linked list
+        ListNode trail = null;          //modified version of current linked list
 
         while (curr != null){
             if (curr.val == valueToRemove){     //if match is found

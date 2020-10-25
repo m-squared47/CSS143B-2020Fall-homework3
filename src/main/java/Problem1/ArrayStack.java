@@ -9,25 +9,26 @@ public class ArrayStack<T> implements Stack<T> {
     }
 
     public ArrayStack(int capacity) {
-        this.size = 0;
-        this.data = (T[]) new Object[capacity];
+        this.size = 0;                              //size to 0
+        this.data = (T[]) (new Object[capacity]);   //set new array for data
     }
 
     @Override
     public boolean push(T val) {
-        if(size == data.length){
-            return false;
+
+        if(data.length > size){     //if there are still empty spaces in array
+            data[size] = val;       //data at index size-1 initialized to val
+            size++;                 //increment size by 1
+            return true;            //return true for assertion check
         }else{
-            this.data[size] = val;          //data[] stays null for some reason
-            size++;                         //even after hours of debug mode
-            return true;
+            return false;
         }
     }
 
     @Override
     public T pop() {
         T val = data[size - 1]; //element popped
-        data[size] = null;      //element in data[] is null
+        data[size - 1] = null;      //element in data[] is null
 
         if(size > 0) {          //if more than one element
             size--;             //decrement size
@@ -38,7 +39,7 @@ public class ArrayStack<T> implements Stack<T> {
 
     @Override
     public T peek() {
-        T val = data[size];     //element at top of the stack
+        T val = data[size - 1];     //element at top of the stack
         return val;
     }
 
