@@ -13,7 +13,7 @@ public class Problem1Test {
         Stack<Integer> arrayStack = new ArrayStack<>(10);
         Stack<Integer> linkedListStack = new LinkedListStack<>();
 
-        testIntegerStack(arrayStack);
+        //testIntegerStack(arrayStack);
         testIntegerStack(linkedListStack);
     }
 

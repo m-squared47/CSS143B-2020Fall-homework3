@@ -44,7 +44,7 @@ public class SingleLinkedList {
         }
         head = last;
         // in-place
-        
+
         //STUCK HERE
     }
 
