@@ -12,19 +12,40 @@ public class SingleLinkedList {
 
     // copy constructor
     public SingleLinkedList(SingleLinkedList list) {
-        // homework
+        this.head = list.head;
+        this.size = list.size;
     }
 
     public int removeAll(int valueToRemove) {
-        // homework
-        // in-place
-        return -1; // place holder
+        int count = 0;
+        while(head.next != null){                   //if there are still elements left
+            if(this.head.val == valueToRemove){     //if the head value equals the value to remove
+                this.head = head.next;              //this current head becomes the next head
+                count++;                            //increment count by 1
+            }
+            this.head = head.next;
+        }
+        return count; // return number of nodes removed
     }
 
     // reverse the linked list nodes iteratively (no recursion)
-    public void reverse() {
-        // homework
+    public void reverse() {                 //(with help from geeksforgeeks.org)
+                                            //For a diagram (not in java):
+                                            // https://media.geeksforgeeks.org/wp-content/cdn-uploads/RGIF2.gif
+        ListNode last = null;               //3 pointers
+        ListNode curr = head;
+        ListNode next;
+
+        while(curr != null){            //while there are still items in list
+            next = curr.next;           //save next
+            curr.next = last;           //reverse
+            last = curr;                //last steps up 1
+            curr = next;                //head moves up 1
+        }
+        head = last;
         // in-place
+        
+        //STUCK HERE
     }
 
     // do not change any function below

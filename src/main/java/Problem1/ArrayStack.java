@@ -9,12 +9,14 @@ public class ArrayStack<T> implements Stack<T> {
     }
 
     public ArrayStack(int capacity) {
-        // homework
+        this.size = capacity;
+        Object array = new Object[capacity];
+        data = (T[])array;
     }
 
     @Override
     public boolean push(T val) {
-        // homework
+
         return false;   // place holder
     }
 
