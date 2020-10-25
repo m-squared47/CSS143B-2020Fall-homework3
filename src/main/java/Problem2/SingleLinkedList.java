@@ -34,11 +34,11 @@ public class SingleLinkedList {
                     count++;                    //update count
                 }else{
                     trail.next = curr.next;  //next value is put in place
-                    curr = trail.next;       //current is now level with trailing
+                    curr = trail.next;       //current is now level with trailing (modified array)
                     count++;                //update count
                 }
             } else {
-                trail = curr;    //value is passed back to trailing
+                trail = curr;           //trailing is level with old current
                 curr = curr.next;       //move to next current
             }
         }
