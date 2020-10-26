@@ -12,19 +12,22 @@ public class MinStack extends ArrayStack<Integer> {
         // homework
         super(size); // place holder
         this.minStack = new int[size];
-        this.index = 0;
+        this.index = -1;
     }
 
     @Override
     public boolean push(Integer val) {
         // homework
-        if(index == 0){      //if the array is empty
+        if(index == -1){      //if the array is empty
             min = val;      //set min as val
+            index++;
             minStack[index] = min;
         }else{              //if array has more than 1 element
             if(min > val){  //check if val is less than the current min
                 min = val;
                 minStack[index] = min;
+            }else{          //if min is still less than
+                minStack[index] = min;  //add to the min stack array
             }
         }
         index++; //private variable size incremented by 1
@@ -46,7 +49,12 @@ public class MinStack extends ArrayStack<Integer> {
     public Integer getMin() {
         // homework
         // loop of any kind is not allowed
-        return min; // place holder
+        if(index > 0) {
+            min = minStack[index - 1];
+            return min; // place holder
+        }else{
+            return null;
+        }
     }
 }
 

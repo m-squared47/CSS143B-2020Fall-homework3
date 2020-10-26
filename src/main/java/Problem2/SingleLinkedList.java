@@ -56,7 +56,7 @@ public class SingleLinkedList {
 
         while(curr != null){            //while there are still items in list
             next = curr.next;           //save next
-            curr.next = last;           //reverse
+            curr.next = last;           //reverse next current and last
             last = curr;                //last steps up 1
             curr = next;                //head moves up 1
         }
