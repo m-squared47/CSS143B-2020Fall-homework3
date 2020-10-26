@@ -50,6 +50,8 @@ public class Problem2Test {
             list.reverse();
             assertEquals(reversed, list);
         }
+
+        //head is always 0, not the first value of each array.
     }
 
     @Test

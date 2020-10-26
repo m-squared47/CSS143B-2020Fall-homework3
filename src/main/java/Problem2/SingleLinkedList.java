@@ -25,7 +25,7 @@ public class SingleLinkedList {
 
         //based off of a post on stackoverflow
         ListNode curr = head;           //current head
-        ListNode trail = null;          //modified version of current linked list
+        ListNode trail = new ListNode();          //modified version of current linked list
 
         while (curr != null){
             if (curr.val == valueToRemove){     //if match is found
@@ -50,19 +50,19 @@ public class SingleLinkedList {
     public void reverse() {                 //(with help from geeksforgeeks.org)
                                             //For a diagram (not in java):
                                             // https://media.geeksforgeeks.org/wp-content/cdn-uploads/RGIF2.gif
-        ListNode last = null;               //3 pointers
-        ListNode curr = head;
-        ListNode next;
+                                            //in comments, I explain how the code works
+        System.out.println("Head at 0 is: " + head.val);
 
-        while(curr != null){            //while there are still items in list
-            next = curr.next;           //save next
-            curr.next = last;           //reverse next current and last
-            last = curr;                //last steps up 1
-            curr = next;                //head moves up 1
+        ListNode prevNode = null, currNode = head, nextNode;     //3 pointers previous, current, next
+
+        while(currNode != null){                //while there are still items in list
+            nextNode = currNode.next;           //save next
+            currNode.next = prevNode;           //reverse next current and last
+            prevNode = currNode;                //last steps up 1
+            currNode = nextNode;                //head moves up 1
         }
-        head = last;
+        head = prevNode;
         // in-place
-
         //STUCK HERE
     }
 
