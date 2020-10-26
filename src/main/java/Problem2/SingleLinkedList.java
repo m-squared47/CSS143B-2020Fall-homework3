@@ -12,19 +12,58 @@ public class SingleLinkedList {
 
     // copy constructor
     public SingleLinkedList(SingleLinkedList list) {
-        // homework
+        this.head = list.head;
+        this.size = list.size;
     }
 
     public int removeAll(int valueToRemove) {
-        // homework
-        // in-place
-        return -1; // place holder
+        int count = 0; //counts how many removed
+
+        if( head == null) {     //if empty, return 0
+            return 0;
+        }
+
+        //based off of a post on stackoverflow
+        ListNode curr = head;           //current head
+        ListNode trail = new ListNode();          //modified version of current linked list
+
+        while (curr != null){
+            if (curr.val == valueToRemove){     //if match is found
+                if (curr == head) {             //if current matches this head
+                    head = head.next;           //this head becomes the next
+                    curr = head;                //update current
+                    count++;                    //update count
+                }else{
+                    trail.next = curr.next;  //next value is put in place
+                    curr = trail.next;       //current is now level with trailing (modified array)
+                    count++;                //update count
+                }
+            } else {
+                trail = curr;           //trailing is level with old current
+                curr = curr.next;       //move to next current
+            }
+        }
+        return count; // return number of nodes removed
     }
 
     // reverse the linked list nodes iteratively (no recursion)
-    public void reverse() {
-        // homework
+    public void reverse() {                 //(with help from geeksforgeeks.org)
+                                            //For a diagram (not in java):
+                                            // https://media.geeksforgeeks.org/wp-content/cdn-uploads/RGIF2.gif
+                                            //in comments, I explain how the code works
+        System.out.println("Head at 0 is: " + head.val);
+
+        ListNode prevNode = null, currNode = head, nextNode;     //3 pointers previous, current, next
+
+        while(currNode != null){                //while there are still items in list
+            nextNode = currNode.next;           //save next
+            currNode.next = prevNode;           //reverse next current and last
+            prevNode = currNode;                //last steps up 1
+            currNode = nextNode;                //head moves up 1
+        }
+        head = prevNode;
         // in-place
+        //STUCK HERE
     }
 
     // do not change any function below

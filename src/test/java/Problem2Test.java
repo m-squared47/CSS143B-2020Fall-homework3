@@ -50,6 +50,8 @@ public class Problem2Test {
             list.reverse();
             assertEquals(reversed, list);
         }
+
+        //head is always 0, not the first value of each array.
     }
 
     @Test
@@ -88,6 +90,11 @@ public class Problem2Test {
             assertEquals(expectedCounts[i], actualRemoved);
             assertEquals(expectedSize[i], list.getSize());
         }
+
+        //Error results...
+        //Expected :Problem2.SingleLinkedList<1 -> 2 -> end >
+        //Actual   :Problem2.SingleLinkedList<1 -> 2 -> end >
+        //??they are the same but one has a space at the end??
     }
 
     @Test
